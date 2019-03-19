@@ -2,6 +2,10 @@
 #define INCLUDE_YOU_LIB
 #include <iostream>
 namespace you {
+
+	enum Color {
+		
+	};
 	class Console {
 		Console() {}
 	public:
@@ -69,6 +73,11 @@ namespace you {
 		//TODO impl
 		template <class ...Char>
 		char* concatChar(char c, Char ...args) {
+
+		}
+
+		Console& setColor()
+		{
 
 		}
 	};
