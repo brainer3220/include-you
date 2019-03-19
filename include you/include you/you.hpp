@@ -1,22 +1,12 @@
 #ifndef INCLUDE_YOU_LIB
 #define INCLUDE_YOU_LIB
+
 #include <iostream>
-#include <Windows.h>
+#include "color.h"
 namespace you {
 
-	enum class Color {
-		RED = FOREGROUND_RED | FOREGROUND_INTENSITY,
-		BLUE = FOREGROUND_BLUE | FOREGROUND_INTENSITY,
-		GREEN = FOREGROUND_GREEN | FOREGROUND_INTENSITY,
-		BLACK = 0,
-		GRAY = FOREGROUND_INTENSITY,
-		YELLOW = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY,
-		WHITE = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY,
-		SKY_BLUE = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY,
-		PURPLE = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY,
-	};
 	class Console {
-		Console() {}
+		Console();
 	public:
 		// Console 객체를 얻습니다.
 		static Console& getInstance();
@@ -104,4 +94,5 @@ namespace you {
 		return get(args...);
 	}
 }
+
 #endif

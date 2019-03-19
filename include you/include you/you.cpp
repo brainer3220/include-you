@@ -2,6 +2,12 @@
 #include <Windows.h>
 
 namespace you {
+
+	Console::Console()
+	{
+
+	}
+
 	Console& Console::getInstance()
 	{
 		static Console console;
