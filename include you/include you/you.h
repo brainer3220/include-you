@@ -1,10 +1,19 @@
 #ifndef INCLUDE_YOU_LIB
 #define INCLUDE_YOU_LIB
 #include <iostream>
+#include <Windows.h>
 namespace you {
 
-	enum Color {
-		
+	enum class Color {
+		RED = FOREGROUND_RED | FOREGROUND_INTENSITY,
+		BLUE = FOREGROUND_BLUE | FOREGROUND_INTENSITY,
+		GREEN = FOREGROUND_GREEN | FOREGROUND_INTENSITY,
+		BLACK = 0,
+		GRAY = FOREGROUND_INTENSITY,
+		YELLOW = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY,
+		WHITE = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY,
+		SKY_BLUE = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY,
+		PURPLE = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY,
 	};
 	class Console {
 		Console() {}
@@ -76,9 +85,16 @@ namespace you {
 
 		}
 
-		Console& setColor()
+		Console& setColor(Color c)
 		{
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (WORD)c);
+			return *this;
+		}
 
+		Console& pause()
+		{
+			system("pause");
+			return *this;
 		}
 	};
 	static Console& console = Console::getInstance();

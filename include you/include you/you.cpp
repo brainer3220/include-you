@@ -2,11 +2,10 @@
 
 int main() {
 	using namespace you;
-	
-	console.putln("Hello").putln("world!");
-	console.put("¤»", 10);
-	int o;
-	console.get(o).put(o).get(o).put(o);
-	char buf[2][256];
-	console.get(buf[0], buf[1]).putln(buf[0]).putln(buf[1]);
+	const char * str = "Hello, #include \"you\"!";
+	Color c[] = { Color::RED, Color::YELLOW, Color::GREEN, Color::SKY_BLUE, Color::PURPLE, Color::WHITE };
+	size_t color_len = sizeof(c) / sizeof(Color);
+	for (size_t i = 0; str[i]; ++i)
+		console.setColor(c[i%color_len]).put(str[i]);
+	console.setColor(Color::WHITE).pause();
 }
