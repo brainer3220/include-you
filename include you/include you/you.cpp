@@ -1,8 +1,8 @@
 #include "you"
 
 int main() {
-	using namespace You;
-
+	using namespace you;
+	
 	console.putln("Hello").putln("world!");
 	console.put("¤»", 10);
 	int o;

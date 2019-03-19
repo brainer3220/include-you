@@ -1,7 +1,7 @@
 #ifndef INCLUDE_YOU_LIB
 #define INCLUDE_YOU_LIB
 #include <iostream>
-namespace You {
+namespace you {
 	class Console {
 		Console() {}
 	public:
@@ -41,6 +41,7 @@ namespace You {
 			return *this;
 		}
 
+		//값을 입력받아 o에 저장합니다.
 		template <class T>
 		Console& get(T& o)
 		{
@@ -48,6 +49,7 @@ namespace You {
 			return *this;
 		}
 
+		//값들을 입력받아 o와 args에 차례로 저장합니다.
 		template <class T, class ...Args>
 		Console& get(T& o, Args ...args) {
 			std::cin >> o;
@@ -64,6 +66,7 @@ namespace You {
 			}
 		}*/
 
+		//TODO impl
 		template <class ...Char>
 		char* concatChar(char c, Char ...args) {
 
