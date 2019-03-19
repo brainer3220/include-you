@@ -84,13 +84,14 @@ namespace you {
 		char* concatChar(char c, Char ...args) {
 
 		}
-
+		//앞으로 출력할 텍스트의 색상을 정합니다.
 		Console& setColor(Color c)
 		{
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (WORD)c);
 			return *this;
 		}
 
+		//"계속하려면 아무 키나 누르세요"를 표시합니다.
 		Console& pause()
 		{
 			system("pause");
@@ -99,4 +100,5 @@ namespace you {
 	};
 	static Console& console = Console::getInstance();
 }
+
 #endif
