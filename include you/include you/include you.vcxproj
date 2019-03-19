@@ -119,10 +119,10 @@
     <ClCompile Include="you.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="you.h" />
+    <None Include="you" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="you" />
+    <ClInclude Include="you.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
