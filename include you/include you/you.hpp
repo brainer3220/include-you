@@ -18,56 +18,34 @@ namespace you {
 	class Console {
 		Console() {}
 	public:
-		static Console& getInstance() { static Console console; return console; }
+		// Console 객체를 얻습니다.
+		static Console& getInstance();
+
 		//Hello World!를 출력합니다.
-		void printHelloWorld() {
-			std::cout << "Hello World!";
-		}
+		Console& printHelloWorld();
 
 		//<Type>형으로 입력을 받아 값을 반환합니다.
 		template <class T>
-		const T& get() {
-			T input;
-			std::cin >> input;
-			return input;
-		}
+		const T& get();
 
-
-		//<Type>형의 값을 repeat번 출력합니다.
+		//<Type>형의 값을 (repeat번) 출력합니다.
 		template <class T>
-		Console& put(const T& output, size_t repeat = 1) {
-			while (repeat--)
-				std::cout << output;
-			return *this;
-		}
+		Console& put(const T& output, size_t repeat = 1);
 
 		//<Type>형의 값을 출력하고 개행합니다.
 		template <class T>
-		Console& putln(const T& output) {
-			std::cout << output << "\n";
-			return *this;
-		}
+		Console& putln(const T& output);
 
 		//개행합니다.
-		Console& putln() {
-			std::cout << "\n";
-			return *this;
-		}
+		Console& putln();
 
 		//값을 입력받아 o에 저장합니다.
 		template <class T>
-		Console& get(T& o)
-		{
-			std::cin >> o;
-			return *this;
-		}
+		Console& get(T& o);
 
 		//값들을 입력받아 o와 args에 차례로 저장합니다.
 		template <class T, class ...Args>
-		Console& get(T& o, Args ...args) {
-			std::cin >> o;
-			return get(args...);
-		}
+		Console& get(T& o, Args ...args);
 
 		/*//별을 찍습니다.
 		void putStar(int n) {
@@ -84,21 +62,47 @@ namespace you {
 		char* concatChar(char c, Char ...args) {
 
 		}
-		//앞으로 출력할 텍스트의 색상을 정합니다.
-		Console& setColor(Color c)
-		{
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (WORD)c);
-			return *this;
-		}
 
-		//"계속하려면 아무 키나 누르세요"를 표시합니다.
-		Console& pause()
-		{
-			system("pause");
-			return *this;
-		}
+		Console& setColor(Color c);
+
+		Console& pause();
 	};
+
 	static Console& console = Console::getInstance();
+
+	// impl of template function
+	template <class T>
+	const T& Console::get() {
+		T input;
+		std::cin >> input;
+		return input;
+	}
+
+	template <class T>
+	Console& Console::put(const T& output, size_t repeat) {
+		while (repeat--)
+			std::cout << output;
+		return *this;
+	}
+
+	template <class T>
+	Console& Console::putln(const T& output) {
+		std::cout << output << "\n";
+		return *this;
+	}
+
+	template <class T>
+	Console& Console::get(T& o)
+	{
+		std::cin >> o;
+		return *this;
+	}
+
+	template <class T, class ...Args>
+	Console& Console::get(T& o, Args ...args) {
+		std::cin >> o;
+		return get(args...);
+	}
 }
 
 #endif
