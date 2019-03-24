@@ -1,6 +1,6 @@
 #include <iostream>
 int main() {
-	int n;
+	int n;ddfd
 	std::cin >> n;
-	std::cout << n << "을 입력하셨습니다!";
+	std::cout << n << "Hello, World!";
 }
